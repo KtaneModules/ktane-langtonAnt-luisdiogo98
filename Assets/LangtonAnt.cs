@@ -120,6 +120,10 @@ public class LangtonAnt : MonoBehaviour
 	{
 		GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
 		goBtn.AddInteractionPunch(.5f);
+
+		if(moduleSolved)
+			return;
+			
 		CalcColors();
 		CalcPath();
 		CheckSolution();
