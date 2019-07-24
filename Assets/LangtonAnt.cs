@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using KModkit;
+using System.Text.RegularExpressions;
 using rnd = UnityEngine.Random;
 
 public class LangtonAnt : MonoBehaviour 
@@ -427,4 +428,193 @@ public class LangtonAnt : MonoBehaviour
 
 		ant.transform.GetComponentInChildren<Renderer>().material = ants[1];
 	}
+
+    //twitch plays
+    #pragma warning disable 414
+    private readonly string TwitchHelpMessage = @"!{0} f c1 c3 e5 n col1 k row3 [Presses the specified buttons, with the following key: r=red,l=lime,w=white,y=yellow,b=blue,n=brown,f=forest,o=orange,k=black,c=cyan,m=magenta,p=purple. Entire columns/rows can be pressed as well as singular cells] | !{0} submit [Submits the current color configuration] | !{0} clear [Uncolors all squares]";
+    #pragma warning restore 414
+
+    IEnumerator ProcessTwitchCommand(string command)
+    {
+        if (Regex.IsMatch(command, @"^\s*clear\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
+        {
+            yield return null;
+            colorBtns[0].OnInteract();
+            foreach(KMSelectable but in squares)
+            {
+                yield return new WaitForSeconds(0.1f);
+                but.OnInteract();
+            }
+            yield break;
+        }
+        if (Regex.IsMatch(command, @"^\s*submit\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
+        {
+            yield return null;
+            goBtn.OnInteract();
+            yield break;
+        }
+        string[] parameters = command.Split(' ');
+        var buttonsToPress = new List<KMSelectable>();
+        foreach (string param in parameters)
+        {
+            if (param.EqualsIgnoreCase("r") || param.EqualsIgnoreCase("red"))
+                buttonsToPress.Add(colorBtns[1]);
+            else if (param.EqualsIgnoreCase("l") || param.EqualsIgnoreCase("lime"))
+                buttonsToPress.Add(colorBtns[2]);
+            else if (param.EqualsIgnoreCase("w") || param.EqualsIgnoreCase("white"))
+                buttonsToPress.Add(colorBtns[3]);
+            else if (param.EqualsIgnoreCase("y") || param.EqualsIgnoreCase("yellow"))
+                buttonsToPress.Add(colorBtns[4]);
+            else if (param.EqualsIgnoreCase("b") || param.EqualsIgnoreCase("blue"))
+                buttonsToPress.Add(colorBtns[5]);
+            else if (param.EqualsIgnoreCase("n") || param.EqualsIgnoreCase("brown"))
+                buttonsToPress.Add(colorBtns[6]);
+            else if (param.EqualsIgnoreCase("f") || param.EqualsIgnoreCase("forest"))
+                buttonsToPress.Add(colorBtns[7]);
+            else if (param.EqualsIgnoreCase("o") || param.EqualsIgnoreCase("orange"))
+                buttonsToPress.Add(colorBtns[8]);
+            else if (param.EqualsIgnoreCase("k") || param.EqualsIgnoreCase("black"))
+                buttonsToPress.Add(colorBtns[9]);
+            else if (param.EqualsIgnoreCase("c") || param.EqualsIgnoreCase("cyan"))
+                buttonsToPress.Add(colorBtns[10]);
+            else if (param.EqualsIgnoreCase("m") || param.EqualsIgnoreCase("magenta"))
+                buttonsToPress.Add(colorBtns[11]);
+            else if (param.EqualsIgnoreCase("p") || param.EqualsIgnoreCase("purple"))
+                buttonsToPress.Add(colorBtns[12]);
+            else if (param.EqualsIgnoreCase("a1"))
+                buttonsToPress.Add(squares[0]);
+            else if (param.EqualsIgnoreCase("a2"))
+                buttonsToPress.Add(squares[1]);
+            else if (param.EqualsIgnoreCase("a3"))
+                buttonsToPress.Add(squares[2]);
+            else if (param.EqualsIgnoreCase("a4"))
+                buttonsToPress.Add(squares[3]);
+            else if (param.EqualsIgnoreCase("a5"))
+                buttonsToPress.Add(squares[4]);
+            else if (param.EqualsIgnoreCase("b1"))
+                buttonsToPress.Add(squares[5]);
+            else if (param.EqualsIgnoreCase("b2"))
+                buttonsToPress.Add(squares[6]);
+            else if (param.EqualsIgnoreCase("b3"))
+                buttonsToPress.Add(squares[7]);
+            else if (param.EqualsIgnoreCase("b4"))
+                buttonsToPress.Add(squares[8]);
+            else if (param.EqualsIgnoreCase("b5"))
+                buttonsToPress.Add(squares[9]);
+            else if (param.EqualsIgnoreCase("c1"))
+                buttonsToPress.Add(squares[10]);
+            else if (param.EqualsIgnoreCase("c2"))
+                buttonsToPress.Add(squares[11]);
+            else if (param.EqualsIgnoreCase("c3"))
+                buttonsToPress.Add(squares[12]);
+            else if (param.EqualsIgnoreCase("c4"))
+                buttonsToPress.Add(squares[13]);
+            else if (param.EqualsIgnoreCase("c5"))
+                buttonsToPress.Add(squares[14]);
+            else if (param.EqualsIgnoreCase("d1"))
+                buttonsToPress.Add(squares[15]);
+            else if (param.EqualsIgnoreCase("d2"))
+                buttonsToPress.Add(squares[16]);
+            else if (param.EqualsIgnoreCase("d3"))
+                buttonsToPress.Add(squares[17]);
+            else if (param.EqualsIgnoreCase("d4"))
+                buttonsToPress.Add(squares[18]);
+            else if (param.EqualsIgnoreCase("d5"))
+                buttonsToPress.Add(squares[19]);
+            else if (param.EqualsIgnoreCase("e1"))
+                buttonsToPress.Add(squares[20]);
+            else if (param.EqualsIgnoreCase("e2"))
+                buttonsToPress.Add(squares[21]);
+            else if (param.EqualsIgnoreCase("e3"))
+                buttonsToPress.Add(squares[22]);
+            else if (param.EqualsIgnoreCase("e4"))
+                buttonsToPress.Add(squares[23]);
+            else if (param.EqualsIgnoreCase("e5"))
+                buttonsToPress.Add(squares[24]);
+            else if (param.EqualsIgnoreCase("row1")) {
+                buttonsToPress.Add(squares[0]);
+                buttonsToPress.Add(squares[1]);
+                buttonsToPress.Add(squares[2]);
+                buttonsToPress.Add(squares[3]);
+                buttonsToPress.Add(squares[4]);
+            }
+            else if (param.EqualsIgnoreCase("row2"))
+            {
+                buttonsToPress.Add(squares[5]);
+                buttonsToPress.Add(squares[6]);
+                buttonsToPress.Add(squares[7]);
+                buttonsToPress.Add(squares[8]);
+                buttonsToPress.Add(squares[9]);
+            }
+            else if (param.EqualsIgnoreCase("row3"))
+            {
+                buttonsToPress.Add(squares[10]);
+                buttonsToPress.Add(squares[11]);
+                buttonsToPress.Add(squares[12]);
+                buttonsToPress.Add(squares[13]);
+                buttonsToPress.Add(squares[14]);
+            }
+            else if (param.EqualsIgnoreCase("row4"))
+            {
+                buttonsToPress.Add(squares[15]);
+                buttonsToPress.Add(squares[16]);
+                buttonsToPress.Add(squares[17]);
+                buttonsToPress.Add(squares[18]);
+                buttonsToPress.Add(squares[19]);
+            }
+            else if (param.EqualsIgnoreCase("row5"))
+            {
+                buttonsToPress.Add(squares[20]);
+                buttonsToPress.Add(squares[21]);
+                buttonsToPress.Add(squares[22]);
+                buttonsToPress.Add(squares[23]);
+                buttonsToPress.Add(squares[24]);
+            }
+            else if (param.EqualsIgnoreCase("col1"))
+            {
+                buttonsToPress.Add(squares[0]);
+                buttonsToPress.Add(squares[5]);
+                buttonsToPress.Add(squares[10]);
+                buttonsToPress.Add(squares[15]);
+                buttonsToPress.Add(squares[20]);
+            }
+            else if (param.EqualsIgnoreCase("col2"))
+            {
+                buttonsToPress.Add(squares[1]);
+                buttonsToPress.Add(squares[6]);
+                buttonsToPress.Add(squares[11]);
+                buttonsToPress.Add(squares[16]);
+                buttonsToPress.Add(squares[21]);
+            }
+            else if (param.EqualsIgnoreCase("col3"))
+            {
+                buttonsToPress.Add(squares[2]);
+                buttonsToPress.Add(squares[7]);
+                buttonsToPress.Add(squares[12]);
+                buttonsToPress.Add(squares[17]);
+                buttonsToPress.Add(squares[22]);
+            }
+            else if (param.EqualsIgnoreCase("col4"))
+            {
+                buttonsToPress.Add(squares[3]);
+                buttonsToPress.Add(squares[8]);
+                buttonsToPress.Add(squares[13]);
+                buttonsToPress.Add(squares[18]);
+                buttonsToPress.Add(squares[23]);
+            }
+            else if (param.EqualsIgnoreCase("col5"))
+            {
+                buttonsToPress.Add(squares[4]);
+                buttonsToPress.Add(squares[9]);
+                buttonsToPress.Add(squares[14]);
+                buttonsToPress.Add(squares[19]);
+                buttonsToPress.Add(squares[24]);
+            }
+            else
+                yield break;
+        }
+
+        yield return null;
+        yield return buttonsToPress;
+    }
 }
