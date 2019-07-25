@@ -484,51 +484,51 @@ public class LangtonAnt : MonoBehaviour
             else if (param.EqualsIgnoreCase("a1"))
                 buttonsToPress.Add(squares[0]);
             else if (param.EqualsIgnoreCase("a2"))
-                buttonsToPress.Add(squares[1]);
-            else if (param.EqualsIgnoreCase("a3"))
-                buttonsToPress.Add(squares[2]);
-            else if (param.EqualsIgnoreCase("a4"))
-                buttonsToPress.Add(squares[3]);
-            else if (param.EqualsIgnoreCase("a5"))
-                buttonsToPress.Add(squares[4]);
-            else if (param.EqualsIgnoreCase("b1"))
                 buttonsToPress.Add(squares[5]);
+            else if (param.EqualsIgnoreCase("a3"))
+                buttonsToPress.Add(squares[10]);
+            else if (param.EqualsIgnoreCase("a4"))
+                buttonsToPress.Add(squares[15]);
+            else if (param.EqualsIgnoreCase("a5"))
+                buttonsToPress.Add(squares[20]);
+            else if (param.EqualsIgnoreCase("b1"))
+                buttonsToPress.Add(squares[1]);
             else if (param.EqualsIgnoreCase("b2"))
                 buttonsToPress.Add(squares[6]);
             else if (param.EqualsIgnoreCase("b3"))
-                buttonsToPress.Add(squares[7]);
-            else if (param.EqualsIgnoreCase("b4"))
-                buttonsToPress.Add(squares[8]);
-            else if (param.EqualsIgnoreCase("b5"))
-                buttonsToPress.Add(squares[9]);
-            else if (param.EqualsIgnoreCase("c1"))
-                buttonsToPress.Add(squares[10]);
-            else if (param.EqualsIgnoreCase("c2"))
                 buttonsToPress.Add(squares[11]);
+            else if (param.EqualsIgnoreCase("b4"))
+                buttonsToPress.Add(squares[16]);
+            else if (param.EqualsIgnoreCase("b5"))
+                buttonsToPress.Add(squares[21]);
+            else if (param.EqualsIgnoreCase("c1"))
+                buttonsToPress.Add(squares[2]);
+            else if (param.EqualsIgnoreCase("c2"))
+                buttonsToPress.Add(squares[7]);
             else if (param.EqualsIgnoreCase("c3"))
                 buttonsToPress.Add(squares[12]);
             else if (param.EqualsIgnoreCase("c4"))
-                buttonsToPress.Add(squares[13]);
-            else if (param.EqualsIgnoreCase("c5"))
-                buttonsToPress.Add(squares[14]);
-            else if (param.EqualsIgnoreCase("d1"))
-                buttonsToPress.Add(squares[15]);
-            else if (param.EqualsIgnoreCase("d2"))
-                buttonsToPress.Add(squares[16]);
-            else if (param.EqualsIgnoreCase("d3"))
                 buttonsToPress.Add(squares[17]);
+            else if (param.EqualsIgnoreCase("c5"))
+                buttonsToPress.Add(squares[22]);
+            else if (param.EqualsIgnoreCase("d1"))
+                buttonsToPress.Add(squares[3]);
+            else if (param.EqualsIgnoreCase("d2"))
+                buttonsToPress.Add(squares[8]);
+            else if (param.EqualsIgnoreCase("d3"))
+                buttonsToPress.Add(squares[13]);
             else if (param.EqualsIgnoreCase("d4"))
                 buttonsToPress.Add(squares[18]);
             else if (param.EqualsIgnoreCase("d5"))
-                buttonsToPress.Add(squares[19]);
-            else if (param.EqualsIgnoreCase("e1"))
-                buttonsToPress.Add(squares[20]);
-            else if (param.EqualsIgnoreCase("e2"))
-                buttonsToPress.Add(squares[21]);
-            else if (param.EqualsIgnoreCase("e3"))
-                buttonsToPress.Add(squares[22]);
-            else if (param.EqualsIgnoreCase("e4"))
                 buttonsToPress.Add(squares[23]);
+            else if (param.EqualsIgnoreCase("e1"))
+                buttonsToPress.Add(squares[4]);
+            else if (param.EqualsIgnoreCase("e2"))
+                buttonsToPress.Add(squares[9]);
+            else if (param.EqualsIgnoreCase("e3"))
+                buttonsToPress.Add(squares[14]);
+            else if (param.EqualsIgnoreCase("e4"))
+                buttonsToPress.Add(squares[19]);
             else if (param.EqualsIgnoreCase("e5"))
                 buttonsToPress.Add(squares[24]);
             else if (param.EqualsIgnoreCase("row1")) {
